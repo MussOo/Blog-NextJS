@@ -31,8 +31,10 @@ export default function Header() {
         </ul>
       </div>
       <div className={style.container_btn_authentification}>
-        <button>Sign in</button>
-        <button>Sign up</button>
+        <Link href="/login">
+          {" "}
+          <span>Sign In</span>
+        </Link>
       </div>
     </header>
   );

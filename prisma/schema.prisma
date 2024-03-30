@@ -15,7 +15,6 @@ datasource db {
 
 model Post{
   id Int @id @default(autoincrement())
-  category Int
   title String
   image String
   caption String
@@ -25,4 +24,13 @@ model Post{
   nbViews Int @default(0)
   nbComments Int @default(0)
   content String
+  category_id Int 
+  category Category @relation(fields: [category_id], references: [id])
+}
+
+model Category{
+  id Int @id @default(autoincrement())
+  title String
+  image String?
+  posts Post[]
 }

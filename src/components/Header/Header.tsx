@@ -3,8 +3,13 @@
 import style from "./style.module.scss";
 import { Home, Folder, Shuffle } from "lucide-react";
 import Link from "next/link";
+import { usePostRandom } from "../../../hook/usePost";
+import { use, useEffect, useState } from "react";
 
 export default function Header() {
+  const [reload, setreload] = useState(false);
+  const { data, error } = usePostRandom();
+
   return (
     <header className={style.header}>
       <h1>Header</h1>
@@ -23,7 +28,12 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <Link href="/random">
+            <Link
+              href={`/post/${data?.id}`}
+              onClick={() => {
+                setreload(!reload);
+              }}
+            >
               {" "}
               <Shuffle /> <span>Random</span>
             </Link>

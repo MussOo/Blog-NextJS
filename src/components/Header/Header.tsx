@@ -4,11 +4,13 @@ import style from "./style.module.scss";
 import { Home, Folder, Shuffle } from "lucide-react";
 import Link from "next/link";
 import { usePostRandom } from "../../../hook/usePost";
-import { use, useEffect, useState } from "react";
+import { useState } from "react";
+import { useSession } from "next-auth/react";
 
 export default function Header() {
   const [reload, setreload] = useState(false);
   const { data, error } = usePostRandom();
+  const { data: session, status } = useSession();
 
   return (
     <header className={style.header}>
@@ -41,10 +43,17 @@ export default function Header() {
         </ul>
       </div>
       <div className={style.container_btn_authentification}>
-        <Link href="/login">
-          {" "}
-          <span>Sign In</span>
-        </Link>
+        {session ? (
+          <Link href="/api/auth/signout">
+            {" "}
+            <span>Sign Out</span>
+          </Link>
+        ) : (
+          <Link href="/login">
+            {" "}
+            <span>Sign In</span>
+          </Link>
+        )}
       </div>
     </header>
   );

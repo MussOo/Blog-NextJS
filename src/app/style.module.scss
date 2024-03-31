@@ -1,0 +1,52 @@
+.main {
+  color: white;
+  height: 80vh;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  margin: 10px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.container_posts_famous {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: #333;
+
+  .container_items {
+    width: 90%;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+
+    .item {
+      margin: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #f5f5f5;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 200px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+
+      h3 {
+        color: #333;
+        font-size: 20px;
+      }
+      p {
+        color: #333;
+        font-size: 15px;
+      }
+    }
+  }
+}
